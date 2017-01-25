@@ -42,17 +42,21 @@ public class EchoServer {
         
         int portNumber = Integer.parseInt(args[0]);
         
-        try (
+        try {
             ServerSocket serverSocket =
                 new ServerSocket(Integer.parseInt(args[0]));
-            Socket clientSocket = serverSocket.accept();     
+            System.out.println("EchoServer is running at port " + Integer.parseInt(args[0]));
+            Socket clientSocket = serverSocket.accept(); 
+            System.out.println("A client is connected ");    
             PrintWriter out =
                 new PrintWriter(clientSocket.getOutputStream(), true);                   
             BufferedReader in = new BufferedReader(
                 new InputStreamReader(clientSocket.getInputStream()));
-        ) {
+    
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
+                System.out.println("received from client: " + inputLine);
+                System.out.println("Echo back");
                 out.println(inputLine);
             }
         } catch (IOException e) {

@@ -44,7 +44,7 @@ public class EchoClient {
         String hostName = args[0];
         int portNumber = Integer.parseInt(args[1]);
 
-        try (
+        try {
             Socket echoSocket = new Socket(hostName, portNumber);
             PrintWriter out =
                 new PrintWriter(echoSocket.getOutputStream(), true);
@@ -53,8 +53,7 @@ public class EchoClient {
                     new InputStreamReader(echoSocket.getInputStream()));
             BufferedReader stdIn =
                 new BufferedReader(
-                    new InputStreamReader(System.in))
-        ) {
+                    new InputStreamReader(System.in));
             String userInput;
             while ((userInput = stdIn.readLine()) != null) {
                 out.println(userInput);
