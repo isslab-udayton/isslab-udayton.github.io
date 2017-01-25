@@ -46,6 +46,7 @@ public class EchoClient {
 
         try {
             Socket echoSocket = new Socket(hostName, portNumber);
+            System.out.println("Connected to server \'" + hostName + "\' at port "+portNumber);
             PrintWriter out =
                 new PrintWriter(echoSocket.getOutputStream(), true);
             BufferedReader in =
