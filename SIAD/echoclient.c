@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
     serveraddr.sin_port = htons(portno);
 
     /* connect: create a connection with the server */
-    if (connect(sockfd, &serveraddr, sizeof(serveraddr)) < 0) 
+    if (connect(sockfd, (struct sockaddr *) &serveraddr, sizeof(serveraddr)) < 0) 
       error("ERROR connecting");
 
     /* get message line from the user */
@@ -64,14 +64,14 @@ int main(int argc, char **argv) {
     bzero(buf, BUFSIZE);
     fgets(buf, BUFSIZE, stdin);
 
-    /* write: send the message line to the server */
-    n = write(sockfd, buf, strlen(buf));
+    /* send the message line to the server */
+    n = send(sockfd, buf, strlen(buf),0);
     if (n < 0) 
       error("ERROR writing to socket");
 
     /* read: print the server's reply */
     bzero(buf, BUFSIZE);
-    n = read(sockfd, buf, BUFSIZE);
+    n = recv(sockfd, buf, BUFSIZE, 0);
     if (n < 0) 
       error("ERROR reading from socket");
     printf("Echo from server: %s", buf);
