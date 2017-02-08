@@ -13,6 +13,6 @@ int main(int argc, char *argv[])
 	strcpy(servername, argv[1]);
 	printf("Server:");
    	printf(servername);
-	
+	printf("\n");
 	return 0;
 }
