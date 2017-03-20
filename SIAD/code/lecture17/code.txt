@@ -1,0 +1,23 @@
+
+
+//Prepared Statements in MySQLi in PHP
+
+if (!($stmt = $mysqli->prepare("SELECT * FROM users WHERE" .  "username=? AND password=password(?);")))
+    echo "Prepare failed";
+
+$stmt->bind_param("ss", $username, $password);
+
+if (!$stmt->execute()) 
+     echo "Execute failed ”;
+
+if (!($result= $stmt->get_result())) 
+    echo "Getting result set failed";
+
+if ($result->num_rows > 0) {
+    //echo "username/password found";
+    return TRUE;
+}//else
+    //echo "username/password NOT found";
+return FALSE;    
+
+
