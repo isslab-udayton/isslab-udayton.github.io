@@ -12,7 +12,7 @@ import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
 /**
- * A simple WebSocketServer implementation. Keeps track of a "chatroom".
+ * A simple WebSocketServer implementation. Keeps track of clients in connections().
  */
 public class EchoServer extends WebSocketServer {
 
@@ -50,7 +50,7 @@ public class EchoServer extends WebSocketServer {
 
 	public static void main( String[] args ) throws InterruptedException , IOException {
 		WebSocketImpl.DEBUG = true;
-		int port = 8887; // 843 flash policy port
+		int port = 8080; // 843 flash policy port
 		try {
 			port = Integer.parseInt( args[ 0 ] );
 		} catch ( Exception ex ) {
