@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     char ipstr[INET6_ADDRSTRLEN];
 
     if (argc != 2) {
-        fprintf(stderr,"usage: showip hostname\n");
+        fprintf(stderr,"usage: %s hostname\n", argv[0]);
         return 1;
     }
 
