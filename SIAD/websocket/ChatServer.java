@@ -101,7 +101,7 @@ public class ChatServer extends WebSocketServer {
 		}
 	}
 
-	@Override
+	//@Override
 	public void onStart() {
 		System.out.println("Server started!");
 	}
