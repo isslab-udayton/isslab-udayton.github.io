@@ -18,6 +18,7 @@
 	if($mysqli->connect_error){
 		die('Connection to the database has error: ' . $mysqli->connect_error); 
 	}
+	$query = mysql_real_escape_string($query);
 	$sql = "SELECT city, state, zip  FROM zips WHERE city LIKE '%{$query}%';";
 	//echo $sql . "<br>";
 	$result = $mysqli->query($sql);	
