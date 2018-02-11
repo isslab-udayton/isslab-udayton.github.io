@@ -1,4 +1,4 @@
-/* definitions, e.g., tokens, include libraries */
+/* definitions, e.g., patterns, include libraries */
 %%
 	/* set of pattern-action rules 
 		RegularExpression { Action}
